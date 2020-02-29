@@ -1,6 +1,23 @@
 (function ($) {
   //
   // Search
+  var pjax = new Pjax({
+        elements: "a",
+        selectors: [
+            "title",
+            ".outer",
+        ],
+        switches: {
+            ".outer": function(oldEl, newEl, options) {
+                oldEl.outerHTML = newEl.outerHTML;
+                this.onSwitch();
+            },
+        },
+        scrollTo: 0,
+        cacheBust: false,
+        scrollRestoration: true,
+        debug: false
+    })
   var $searchWrap = $('.search-form-wrap'),
     isSearchAnim = false,
     searchAnimDuration = 200;
@@ -153,6 +170,7 @@
     $('#mask').fadeOut(100)
     $('#reward').fadeOut(100)
   })
+  
 })(jQuery);
 
 
