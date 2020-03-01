@@ -289,11 +289,14 @@
   
 <script src="/main.js"></script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-<div class="aplayer" data-id="4890295774" data-server="netease" data-type="playlist" data-fixed="true" data-order="list" data-preload="auto" data-loop="all" data-autoplay="true">
-</div>
-<script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  // 判断是否启用aplayer
+if theme.aplayer && theme.aplayer.enable
+	// 播放器容器
+	.aplayer(data-id=theme.aplayer.id data-server="theme.aplayer.server" data-type="theme.aplayer.type" data-fixed="theme.aplayer.fixed" data-order="theme.aplayer.order" data-preload="theme.aplayer.preload")
+	each item in theme.aplayer.css
+		link(rel='stylesheet', href=item)
+	each item in theme.aplayer.js
+		script(src=item)
 
 </footer>
     <div class="to_top">
